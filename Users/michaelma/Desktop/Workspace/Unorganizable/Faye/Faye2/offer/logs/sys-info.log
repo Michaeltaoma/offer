@@ -595,3 +595,8 @@
 21:31:47.578 [http-nio-80-exec-30] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
 21:40:41.593 [schedule-pool-4] INFO  c.w.f.s.w.s.OnlineWebSessionManager - [validateSessions,87] - invalidation sessions...
 21:40:41.604 [schedule-pool-4] INFO  c.w.f.s.w.s.OnlineWebSessionManager - [validateSessions,137] - Finished invalidation session. No sessions were stopped.
+21:41:05.647 [SpringContextShutdownHook] INFO  sys-user - [shutdownSpringSessionValidationScheduler,41] - ====关闭会话验证任务====
+21:41:05.649 [SpringContextShutdownHook] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
+21:41:05.649 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
+21:41:05.662 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2032] - {dataSource-1} closing ...
+21:41:05.665 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2104] - {dataSource-1} closed

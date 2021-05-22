@@ -26,3 +26,6 @@
 21:31:13.376 [schedule-pool-3] INFO  sys-user - [run,98] - [127.0.0.1]内网IP[mt][Error][密码输入错误1次]
 21:31:35.620 [schedule-pool-2] INFO  sys-user - [run,98] - [127.0.0.1]内网IP[mtmt][Register][注册成功]
 21:31:45.570 [schedule-pool-1] INFO  sys-user - [run,98] - [127.0.0.1]内网IP[mtmt][Success][登录成功]
+21:41:05.647 [SpringContextShutdownHook] INFO  sys-user - [shutdownSpringSessionValidationScheduler,41] - ====关闭会话验证任务====
+21:41:05.649 [SpringContextShutdownHook] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
+21:41:05.649 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
