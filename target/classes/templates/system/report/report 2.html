@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('用户上报列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>用户名称：</label>
+                                <input type="text" name="userName"/>
+                            </li>
+                            <li>
+                                <label>上报状态：</label>
+                                <select name="reportStatus" th:with="type=${@dict.getType('report_status')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>录取学年：</label>
+                                <select name="resYear" th:with="type=${@dict.getType('res_year')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>上报时间：</label>
+                                <input type="text" class="time-input" placeholder="请选择上报时间" name="reportTime"/>
+                            </li>
+                            <li>
+                                <label>录取学期：</label>
+                                <select name="resTerm" th:with="type=${@dict.getType('res_term')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>录取学校：</label>
+                                <input type="text" name="resSchool"/>
+                            </li>
+                            <li>
+                                <label>录取学位：</label>
+                                <select name="resStudy" th:with="type=${@dict.getType('res_study')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>录取专业：</label>
+                                <select name="resMajor" th:with="type=${@dict.getType('res_major')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>录取项目：</label>
+                                <input type="text" name="resProject"/>
+                            </li>
+                            <li>
+                                <label>录取结果：</label>
+                                <select name="resResult" th:with="type=${@dict.getType('res_result')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>录取通知方式：</label>
+                                <select name="resNotice" th:with="type=${@dict.getType('res_notice')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>标题：</label>
+                                <input type="text" name="title"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('system:report:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:report:remove')}]];
+        var reportStatusDatas = [[${@dict.getType('report_status')}]];
+        var resYearDatas = [[${@dict.getType('res_year')}]];
+        var resTermDatas = [[${@dict.getType('res_term')}]];
+        var resStudyDatas = [[${@dict.getType('res_study')}]];
+        var resMajorDatas = [[${@dict.getType('res_major')}]];
+        var resResultDatas = [[${@dict.getType('res_result')}]];
+        var resNoticeDatas = [[${@dict.getType('res_notice')}]];
+        var prefix = ctx + "system/report";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "用户上报",
+                showSearch: false,
+                showRefresh: false,
+                showToggle: false,
+                showColumns: false,
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'reportId',
+                    title: '背景ID',
+                    visible: false
+                },
+                {
+                    field: 'userName',
+                    title: '用户名称'
+                },
+                {
+                    field: 'reportStatus',
+                    title: '上报状态',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(reportStatusDatas, value);
+                    }
+                },
+                {
+                    field: 'resYear',
+                    title: '录取学年',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(resYearDatas, value);
+                    }
+                },
+                {
+                    field: 'reportTime',
+                    title: '上报时间'
+                },
+                {
+                    field: 'resTerm',
+                    title: '录取学期',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(resTermDatas, value);
+                    }
+                },
+                {
+                    field: 'resSchool',
+                    title: '录取学校'
+                },
+                {
+                    field: 'resStudy',
+                    title: '录取学位',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(resStudyDatas, value);
+                    }
+                },
+                {
+                    field: 'resMajor',
+                    title: '录取专业',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(resMajorDatas, value);
+                    }
+                },
+                {
+                    field: 'resProject',
+                    title: '录取项目'
+                },
+                {
+                    field: 'resResult',
+                    title: '录取结果',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(resResultDatas, value);
+                    }
+                },
+                {
+                    field: 'resNotice',
+                    title: '录取通知方式',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(resNoticeDatas, value);
+                    }
+                },
+                {
+                    field: 'resNoticeTime',
+                    title: '录取通知时间'
+                },
+                {
+                    field: 'reqTime',
+                    title: '网申提交时间'
+                },
+                {
+                    field: 'title',
+                    title: '标题'
+                },
+                {
+                    field: 'info',
+                    title: '帖子内容'
+                },
+                {
+                    title: '审核',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        if (row.reportStatus === 0) {
+                            actions.push('<a class="btn btn-success btn-xs" href="javascript:void(0)" onclick="$.operate.adopt(\'' + row.reportId + '\')"><i class="fa fa-edit"></i>通过</a> ');
+                            actions.push('<a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="$.operate.no(\'' + row.reportId + '\')"><i class="fa fa-remove"></i>拒绝</a>');
+                        }
+                        return actions.join('');
+                    }
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.reportId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>
