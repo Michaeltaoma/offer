@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyp.system.mapper.UserPrivateMapper">
+    
+    <resultMap type="UserPrivate" id="UserPrivateResult">
+        <result property="msgId"    column="msg_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="replyUserId"    column="reply_user_id"    />
+        <result property="replyUserName"    column="reply_user_name"    />
+        <result property="msgStatus"    column="msg_status"    />
+        <result property="msgInfo"    column="msg_info"    />
+        <result property="msgTime"    column="msg_time"    />
+    </resultMap>
+
+    <sql id="selectUserPrivateVo">
+        select msg_id, user_id, user_name, reply_user_id, reply_user_name, msg_status, msg_info, msg_time from user_private
+    </sql>
+
+    <select id="selectUserPrivateList" parameterType="UserPrivate" resultMap="UserPrivateResult">
+        <include refid="selectUserPrivateVo"/>
+        <where>  
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="replyUserId != null "> and reply_user_id = #{replyUserId}</if>
+            <if test="replyUserName != null  and replyUserName != ''"> and reply_user_name like concat('%', #{replyUserName}, '%')</if>
+            <if test="msgStatus != null "> and msg_status = #{msgStatus}</if>
+        </where>
+    </select>
+    
+    <select id="selectUserPrivateById" parameterType="Long" resultMap="UserPrivateResult">
+        <include refid="selectUserPrivateVo"/>
+        where msg_id = #{msgId}
+    </select>
+        
+    <insert id="insertUserPrivate" parameterType="UserPrivate" useGeneratedKeys="true" keyProperty="msgId">
+        insert into user_private
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="replyUserId != null">reply_user_id,</if>
+            <if test="replyUserName != null">reply_user_name,</if>
+            <if test="msgStatus != null">msg_status,</if>
+            <if test="msgInfo != null">msg_info,</if>
+            <if test="msgTime != null">msg_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="replyUserId != null">#{replyUserId},</if>
+            <if test="replyUserName != null">#{replyUserName},</if>
+            <if test="msgStatus != null">#{msgStatus},</if>
+            <if test="msgInfo != null">#{msgInfo},</if>
+            <if test="msgTime != null">#{msgTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateUserPrivate" parameterType="UserPrivate">
+        update user_private
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="replyUserId != null">reply_user_id = #{replyUserId},</if>
+            <if test="replyUserName != null">reply_user_name = #{replyUserName},</if>
+            <if test="msgStatus != null">msg_status = #{msgStatus},</if>
+            <if test="msgInfo != null">msg_info = #{msgInfo},</if>
+            <if test="msgTime != null">msg_time = #{msgTime},</if>
+        </trim>
+        where msg_id = #{msgId}
+    </update>
+
+    <delete id="deleteUserPrivateById" parameterType="Long">
+        delete from user_private where msg_id = #{msgId}
+    </delete>
+
+    <delete id="deleteUserPrivateByIds" parameterType="String">
+        delete from user_private where msg_id in 
+        <foreach item="msgId" collection="array" open="(" separator="," close=")">
+            #{msgId}
+        </foreach>
+    </delete>
+
+    <select id="selectUserPrivateListByUserIds" parameterType="UserPrivate" resultMap="UserPrivateResult">
+        SELECT * FROM (SELECT user_id, user_name, msg_info, (2) msg_status, msg_time FROM user_private WHERE user_id = #{userId} AND reply_user_id = #{replyUserId} union
+        SELECT user_id, user_name, msg_info, (1) msg_status, msg_time FROM user_private WHERE user_id = #{replyUserId} AND reply_user_id = #{userId}) a order by a.msg_time
+    </select>
+
+    <select id="selectPrivateByReplyUserId" parameterType="UserPrivate" resultMap="UserPrivateResult">
+        SELECT * FROM user_private WHERE reply_user_id = #{userId}  GROUP BY user_id DESC
+    </select>
+
+</mapper>

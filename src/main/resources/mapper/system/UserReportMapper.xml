@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wyp.system.mapper.UserReportMapper">
+    
+    <resultMap type="UserReport" id="UserReportResult">
+        <result property="reportId"    column="report_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="userName"    column="user_name"    />
+        <result property="reportStatus"    column="report_status"    />
+        <result property="resYear"    column="res_year"    />
+        <result property="reportTime"    column="report_time"    />
+        <result property="resTerm"    column="res_term"    />
+        <result property="resSchool"    column="res_school"    />
+        <result property="resStudy"    column="res_study"    />
+        <result property="resMajor"    column="res_major"    />
+        <result property="resProject"    column="res_project"    />
+        <result property="resResult"    column="res_result"    />
+        <result property="resNotice"    column="res_notice"    />
+        <result property="resNoticeTime"    column="res_notice_time"    />
+        <result property="reqTime"    column="req_time"    />
+        <result property="title"    column="title"    />
+        <result property="info"    column="info"    />
+    </resultMap>
+
+    <sql id="selectUserReportVo">
+        select report_id, user_id, user_name, report_status, res_year, report_time, res_term, res_school, res_study, res_major, res_project, res_result, res_notice, res_notice_time, req_time, title, info from user_report
+    </sql>
+
+    <select id="selectUserReportList" parameterType="UserReport" resultMap="UserReportResult">
+        <include refid="selectUserReportVo"/>
+        <where>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="reportStatus != null "> and report_status = #{reportStatus}</if>
+            <if test="resYear != null "> and res_year = #{resYear}</if>
+            <if test="reportTime != null "> and report_time = #{reportTime}</if>
+            <if test="resTerm != null "> and res_term = #{resTerm}</if>
+            <if test="resSchool != null  and resSchool != ''"> and res_school like concat('%', #{resSchool}, '%')</if>
+            <if test="resStudy != null "> and res_study = #{resStudy}</if>
+            <if test="resMajor != null "> and res_major = #{resMajor}</if>
+            <if test="resProject != null  and resProject != ''"> and res_project like concat('%', #{resProject}, '%')</if>
+            <if test="resResult != null "> and res_result = #{resResult}</if>
+            <if test="resNotice != null "> and res_notice = #{resNotice}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+        </where>
+    </select>
+    
+    <select id="selectUserReportById" parameterType="Long" resultMap="UserReportResult">
+        <include refid="selectUserReportVo"/>
+        where report_id = #{reportId}
+    </select>
+        
+    <insert id="insertUserReport" parameterType="UserReport" useGeneratedKeys="true" keyProperty="reportId">
+        insert into user_report
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="reportStatus != null">report_status,</if>
+            <if test="resYear != null">res_year,</if>
+            <if test="reportTime != null">report_time,</if>
+            <if test="resTerm != null">res_term,</if>
+            <if test="resSchool != null">res_school,</if>
+            <if test="resStudy != null">res_study,</if>
+            <if test="resMajor != null">res_major,</if>
+            <if test="resProject != null">res_project,</if>
+            <if test="resResult != null">res_result,</if>
+            <if test="resNotice != null">res_notice,</if>
+            <if test="resNoticeTime != null">res_notice_time,</if>
+            <if test="reqTime != null">req_time,</if>
+            <if test="title != null">title,</if>
+            <if test="info != null">info,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="reportStatus != null">#{reportStatus},</if>
+            <if test="resYear != null">#{resYear},</if>
+            <if test="reportTime != null">#{reportTime},</if>
+            <if test="resTerm != null">#{resTerm},</if>
+            <if test="resSchool != null">#{resSchool},</if>
+            <if test="resStudy != null">#{resStudy},</if>
+            <if test="resMajor != null">#{resMajor},</if>
+            <if test="resProject != null">#{resProject},</if>
+            <if test="resResult != null">#{resResult},</if>
+            <if test="resNotice != null">#{resNotice},</if>
+            <if test="resNoticeTime != null">#{resNoticeTime},</if>
+            <if test="reqTime != null">#{reqTime},</if>
+            <if test="title != null">#{title},</if>
+            <if test="info != null">#{info},</if>
+         </trim>
+    </insert>
+
+    <update id="updateUserReport" parameterType="UserReport">
+        update user_report
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="reportStatus != null">report_status = #{reportStatus},</if>
+            <if test="resYear != null">res_year = #{resYear},</if>
+            <if test="reportTime != null">report_time = #{reportTime},</if>
+            <if test="resTerm != null">res_term = #{resTerm},</if>
+            <if test="resSchool != null">res_school = #{resSchool},</if>
+            <if test="resStudy != null">res_study = #{resStudy},</if>
+            <if test="resMajor != null">res_major = #{resMajor},</if>
+            <if test="resProject != null">res_project = #{resProject},</if>
+            <if test="resResult != null">res_result = #{resResult},</if>
+            <if test="resNotice != null">res_notice = #{resNotice},</if>
+            <if test="resNoticeTime != null">res_notice_time = #{resNoticeTime},</if>
+            <if test="reqTime != null">req_time = #{reqTime},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="info != null">info = #{info},</if>
+        </trim>
+        where report_id = #{reportId}
+    </update>
+
+    <delete id="deleteUserReportById" parameterType="Long">
+        delete from user_report where report_id = #{reportId}
+    </delete>
+
+    <delete id="deleteUserReportByIds" parameterType="String">
+        delete from user_report where report_id in 
+        <foreach item="reportId" collection="array" open="(" separator="," close=")">
+            #{reportId}
+        </foreach>
+    </delete>
+
+</mapper>

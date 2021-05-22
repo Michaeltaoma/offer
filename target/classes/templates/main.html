@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('首页')" />
+</head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>学校：</label>
+                                <input type="text" name="resSchool"/>
+                            </li>
+                            <li>
+                                <label>学年：</label>
+                                <select name="resYear" th:with="type=${@dict.getType('res_year')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
+<th:block th:include="include :: footer" />
+<script th:inline="javascript">
+    var resStudyDatas = [[${@dict.getType('res_study')}]];
+    var resMajorDatas = [[${@dict.getType('res_major')}]];
+    var resResultDatas = [[${@dict.getType('res_result')}]];
+    var resNoticeDatas = [[${@dict.getType('res_notice')}]];
+    var prefix = ctx + "offer";
+    var bagUrl = prefix + "/bag/details/";
+    var reportDetailsUrl = prefix + "/report/details/";
+
+    $(function() {
+        var options = {
+            url: prefix + "/list",
+            modalName: "用户上报",
+            showSearch: false,
+            showRefresh: false,
+            showToggle: false,
+            showColumns: false,
+            columns: [
+                {
+                    field: 'resSchool',
+                    title: '学校名称'
+                },
+                {
+                    field: 'resStudy',
+                    title: '学位',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(resStudyDatas, value);
+                    }
+                },
+                {
+                    field: 'resMajor',
+                    title: '专业',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(resMajorDatas, value);
+                    }
+                },
+                {
+                    field: 'resResult',
+                    title: '录取结果',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(resResultDatas, value);
+                    }
+                },
+                {
+                    field: 'resNotice',
+                    title: '录取通知方式',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(resNoticeDatas, value);
+                    }
+                },
+                {
+                    title: '详情',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        var url = reportDetailsUrl + row.reportId;
+                        actions.push('<a class="btn btn-success btn-xs" href="javascript:void(0)" onclick="$.operate.details(\'查看详情\', \'' + url + '\', \'\', \'500\')"><i class="fa fa-edit"></i>查看</a> ');
+                        return actions.join('');
+                    }
+                },
+                {
+                    title: '申请背景',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        var url = bagUrl + row.userId;
+                        actions.push('<a class="btn btn-success btn-xs" href="javascript:void(0)" onclick="$.operate.details(\'查看申请背景\', \'' + url + '\', \'\', \'399\')"><i class="fa fa-edit"></i>查看</a> ');
+                        return actions.join('');
+                    }
+                }
+            ]
+        };
+        $.table.init(options);
+    });
+
+    /** 清理参数缓存 */
+    function clearCache() {
+        $.operate.get(prefix + "/clearCache");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.private-span {
+	background-color: white;
+	padding: 5px;
+	border-radius: 25px;
+}
+.private-left {
+	width: 80%;
+	margin-right: 20%;
+}
+.private-right {
+	text-align:right;
+	width: 80%;
+	margin-left: 20%;
+}
