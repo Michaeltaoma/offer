@@ -600,3 +600,84 @@
 21:41:05.649 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
 21:41:05.662 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2032] - {dataSource-1} closing ...
 21:41:05.665 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2104] - {dataSource-1} closed
+22:38:22.129 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.21.Final
+22:38:22.137 [restartedMain] INFO  c.wyp.WypApplication - [logStarting,55] - Starting WypApplication on Michaels-MacBook-Pro.local with PID 48985 (/Users/michaelma/Desktop/Workspace/Unorganizable/Faye/Faye2/offer/target/classes started by michaelma in /Users/michaelma/Desktop/Workspace/Unorganizable/Faye/Faye2/offer)
+22:38:22.137 [restartedMain] INFO  c.wyp.WypApplication - [logStartupProfileInfo,655] - The following profiles are active: druid
+22:38:23.394 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-authCache]
+22:38:24.018 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+22:38:24.128 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,985] - {dataSource-1} inited
+22:38:24.130 [Druid-ConnectionPool-Create-1899457363] INFO  c.a.d.p.DruidAbstractDataSource - [setFailContinuous,1799] - {dataSource-1} failContinuous is true
+22:38:24.134 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2032] - {dataSource-1} closing ...
+22:38:24.135 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2104] - {dataSource-1} closed
+22:40:02.407 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.21.Final
+22:40:02.415 [restartedMain] INFO  c.wyp.WypApplication - [logStarting,55] - Starting WypApplication on Michaels-MacBook-Pro.local with PID 49022 (/Users/michaelma/Desktop/Workspace/Unorganizable/Faye/Faye2/offer/target/classes started by michaelma in /Users/michaelma/Desktop/Workspace/Unorganizable/Faye/Faye2/offer)
+22:40:02.416 [restartedMain] INFO  c.wyp.WypApplication - [logStartupProfileInfo,655] - The following profiles are active: druid
+22:40:03.595 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-authCache]
+22:40:04.173 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+22:40:04.298 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,985] - {dataSource-1} inited
+22:40:04.300 [Druid-ConnectionPool-Create-1731893154] INFO  c.a.d.p.DruidAbstractDataSource - [setFailContinuous,1799] - {dataSource-1} failContinuous is true
+22:40:04.304 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2032] - {dataSource-1} closing ...
+22:40:04.305 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2104] - {dataSource-1} closed
+22:41:08.982 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.0.21.Final
+22:41:08.990 [restartedMain] INFO  c.wyp.WypApplication - [logStarting,55] - Starting WypApplication on Michaels-MacBook-Pro.local with PID 49042 (/Users/michaelma/Desktop/Workspace/Unorganizable/Faye/Faye2/offer/target/classes started by michaelma in /Users/michaelma/Desktop/Workspace/Unorganizable/Faye/Faye2/offer)
+22:41:08.991 [restartedMain] INFO  c.wyp.WypApplication - [logStartupProfileInfo,655] - The following profiles are active: druid
+22:41:10.154 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-authCache]
+22:41:10.737 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [loginRecordCache]
+22:41:34.747 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,985] - {dataSource-1} inited
+22:41:35.134 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.137 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.137 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.138 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.138 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.139 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.139 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.139 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:41:35.231 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+22:41:35.504 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-80"]
+22:41:35.505 [restartedMain] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+22:41:35.505 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+22:41:35.562 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+22:41:36.180 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:36.416 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:36.650 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:36.885 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:37.118 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:37.354 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:37.589 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:37.935 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:38.170 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:38.788 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:39.023 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:39.257 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:39.706 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:40.238 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:40.686 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:40.923 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:41.157 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:41.391 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:41.625 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:41:42.583 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-80"]
+22:41:42.601 [restartedMain] INFO  c.wyp.WypApplication - [logStarted,61] - Started WypApplication in 33.877 seconds (JVM running for 34.543)
+22:41:58.070 [http-nio-80-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:41:58.096 [http-nio-80-exec-1] INFO  o.a.s.s.m.AbstractValidatingSessionManager - [enableSessionValidation,233] - Enabling session validation scheduler...
+22:41:58.102 [http-nio-80-exec-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [shiro-activeSessionCache]
+22:41:59.101 [schedule-pool-1] INFO  c.w.f.s.w.s.OnlineWebSessionManager - [validateSessions,87] - invalidation sessions...
+22:42:00.358 [schedule-pool-1] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-userCache]
+22:42:01.071 [schedule-pool-1] INFO  c.w.f.s.w.s.OnlineWebSessionManager - [validateSessions,137] - Finished invalidation session. [1] sessions were stopped.
+22:42:07.209 [schedule-pool-2] INFO  sys-user - [run,98] - [127.0.0.1]内网IP[admin][Success][登录成功]
+22:42:07.986 [http-nio-80-exec-4] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:42:07.987 [http-nio-80-exec-4] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:42:07.987 [http-nio-80-exec-4] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:42:07.988 [http-nio-80-exec-4] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:42:07.988 [http-nio-80-exec-4] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:42:08.225 [http-nio-80-exec-4] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-config]
+22:42:08.412 [http-nio-80-exec-26] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:42:08.422 [http-nio-80-exec-26] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:42:08.443 [http-nio-80-exec-26] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:42:08.447 [http-nio-80-exec-26] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:42:08.448 [http-nio-80-exec-26] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
+22:42:14.541 [SpringContextShutdownHook] INFO  sys-user - [shutdownSpringSessionValidationScheduler,41] - ====关闭会话验证任务====
+22:42:14.543 [SpringContextShutdownHook] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
+22:42:14.543 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
+22:42:14.555 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2032] - {dataSource-1} closing ...
+22:42:14.561 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2104] - {dataSource-1} closed
