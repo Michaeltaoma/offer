@@ -19,7 +19,7 @@
     <select id="selectRecommendateSchool" parameterType="UserSchool" resultMap="UserSchoolResult">
         <include refid="selectSchoolVo"/>
         <where>
-            <if test="minGPA != null ">  min_gpa &lt; #{minGPA}</if>
+            <if test="minGPA != null ">  min_gpa &lt;= #{minGPA}</if>
         </where>
     </select>
 
