@@ -6,3 +6,5 @@
 01:03:12.510 [Thread-17] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
 01:03:49.034 [Thread-24] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
 01:03:49.036 [Thread-24] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
+01:10:11.203 [SpringContextShutdownHook] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
+01:10:11.207 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====

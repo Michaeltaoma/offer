@@ -210,3 +210,7 @@
 01:04:13.671 [restartedMain] INFO  o.a.s.c.e.EhCacheManager - [getCache,169] - Using existing EHCache named [sys-dict]
 01:04:14.362 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-80"]
 01:04:14.366 [restartedMain] INFO  c.wyp.WypApplication - [logStarted,61] - Started WypApplication in 23.995 seconds (JVM running for 273.7)
+01:10:11.203 [SpringContextShutdownHook] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
+01:10:11.207 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
+01:10:11.213 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2032] - {dataSource-5} closing ...
+01:10:11.221 [SpringContextShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2104] - {dataSource-5} closed
