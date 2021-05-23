@@ -1,0 +1,2 @@
+12:52:58.841 [SpringContextShutdownHook] INFO  sys-user - [shutdownAsyncManager,54] - ====关闭后台任务任务线程池====
+12:52:58.844 [SpringContextShutdownHook] INFO  sys-user - [shutdownEhCacheManager,63] - ====关闭缓存====
