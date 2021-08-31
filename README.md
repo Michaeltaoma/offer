@@ -1,1 +1,1 @@
-这是一个留学信息服务平台
+System for providing relevant help for grad school application
